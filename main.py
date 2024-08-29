@@ -5,6 +5,7 @@ import pandas as pd
 
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.model_selection import train_test_split
+from sklearn.naive_bayes import MultinomialNB
 
 nltk.download("movie_reviews") 
 
@@ -32,3 +33,7 @@ STATE = 50 # Arbitrary integer. Guarantees the dataset is consistently split in 
 reviews_train, reviews_test, sentiment_train, sentiment_test = train_test_split(
     review_tokens, sentiments, test_size=0.2, random_state=STATE
 )
+
+# Naive Bayes classifier 
+model = MultinomialNB()
+model.fit(reviews_train, sentiment_train) # Trains the model
