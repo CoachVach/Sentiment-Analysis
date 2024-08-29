@@ -24,13 +24,13 @@ for review in reviews:
 
 df = pd.DataFrame(reviews, columns=["text", "sentiment"])
 
-vect = CountVectorizer(max_features=2000)
+vect = CountVectorizer(max_features=5000)
 
 # Transforming the text data into vectors, so that it can be used by the model.
 review_tokens = vect.fit_transform(df["text"])
 sentiments = df["sentiment"]
 
-STATE = 50 # Arbitrary integer. Guarantees the dataset is consistently split in the same way every time.
+STATE = 100 # Arbitrary integer. Guarantees the dataset is consistently split in the same way every time.
 
 # Splits the data into training and testing sets (20% for testing).
 reviews_train, reviews_test, sentiment_train, sentiment_test = train_test_split(
