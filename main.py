@@ -49,8 +49,6 @@ print(f"-Classification Report:\n{classification_report(sentiment_test, sentimen
 def predict_sentiment(text):
     return model.predict(vect.transform([text]))[0]
 
-
 # Test
 print(predict_sentiment("Fantastic movie!"))
-print(predict_sentiment("It was a terrible. Dislike."))
-print(predict_sentiment("The movie was okay, nothing special."))
+print(predict_sentiment("It was terrible. Dislike."))
